@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <AnchorPane prefHeight="420.0" prefWidth="640.0" style="-fx-background-color: #eee;">
+         <children>
+            <Rectangle arcWidth="5.0" fill="#5e35b1" height="77.0" stroke="#30262600" strokeType="INSIDE" width="640.0" />
+            <MaterialDesignIconView fx:id="closeIcon" fill="WHITE" glyphName="CLOSE" layoutX="586.0" layoutY="49.0" onMouseClicked="#closeApp" size="40" />
+            <JFXTextField fx:id="nameField" focusColor="#5e35b1" layoutX="14.0" layoutY="127.0" prefHeight="25.0" prefWidth="176.0" promptText="Nombre" unFocusColor="#9162e4" />
+            <JFXTextField fx:id="modelField" focusColor="#5e35b1" layoutX="14.0" layoutY="185.0" prefHeight="25.0" prefWidth="176.0" promptText="Modelo" unFocusColor="#9162e4" />
+            <JFXToggleButton fx:id="originalToggle" layoutX="22.0" layoutY="229.0" prefHeight="51.0" prefWidth="160.0" text="Original" toggleColor="#9162e4" toggleLineColor="#5e35b1" />
+            <JFXTextArea fx:id="descriptionArea" layoutX="14.0" layoutY="287.0" prefHeight="92.0" prefWidth="176.0" promptText="Notas adicionales" unFocusColor="#9162e4" />
+            <JFXDatePicker fx:id="orderDate" defaultColor="#9162e4" layoutX="17.0" layoutY="88.0" promptText="Fecha del pedido" />
+            <JFXButton fx:id="editButton" buttonType="RAISED" layoutX="214.0" layoutY="165.0" onMouseClicked="#updateProduct" prefHeight="40.0" prefWidth="105.0" ripplerFill="#7341e1" style="-fx-background-color: #9162e4;" text="Actualizar" textFill="WHITE" textOverrun="CLIP">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="EDIT" size="30" />
+               </graphic>
+            </JFXButton>
+            <JFXTextField fx:id="positionField" focusColor="#5e35b1" layoutX="361.0" layoutY="275.0" prefHeight="25.0" prefWidth="226.0" promptText="Leer/Borrar datos con posicion" unFocusColor="#9162e4" />
+            <JFXButton fx:id="saveButton" buttonType="RAISED" layoutX="214.0" layoutY="221.0" onMouseClicked="#newProduct" prefHeight="40.0" prefWidth="105.0" ripplerFill="#7341e1" style="-fx-background-color: #9162e4;" text="Guardar" textFill="WHITE" textOverrun="CLIP">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="SAVE" size="30" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="readButton" buttonType="RAISED" layoutX="479.0" layoutY="313.0" onMouseClicked="#showProduct" prefHeight="40.0" prefWidth="105.0" ripplerFill="#7341e1" style="-fx-background-color: #9162e4;" text="Leer" textFill="WHITE" textOverrun="CLIP">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="LEANPUB" size="30" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="eraseButton" buttonType="RAISED" layoutX="359.0" layoutY="313.0" onMouseClicked="#eraseProduct" prefHeight="40.0" prefWidth="105.0" ripplerFill="#7341e1" style="-fx-background-color: #9162e4;" text="Borrar" textFill="WHITE" textOverrun="CLIP">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="ERASER" size="30" />
+               </graphic>
+            </JFXButton>
+            <JFXListView fx:id="boardList" editable="true" layoutX="361.0" layoutY="134.0" prefHeight="127.0" prefWidth="226.0" showTooltip="true" style="-fx-background-color: #ede7f6;" />
+            <JFXTextField fx:id="idField" focusColor="#5e35b1" layoutX="214.0" layoutY="92.0" prefHeight="25.0" prefWidth="105.0" promptText="Id" unFocusColor="#9162e4" />
+            <Label alignment="CENTER" layoutX="358.0" layoutY="92.0" prefHeight="17.0" prefWidth="226.0" text="Lista de elementos">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="updateButton" buttonType="RAISED" layoutX="419.0" layoutY="359.0" onMouseClicked="#updateProductList" prefHeight="40.0" prefWidth="105.0" ripplerFill="#7341e1" style="-fx-background-color: #9162e4;" text="Actualizar lista" textFill="WHITE" textOverrun="CLIP">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="REFRESH" size="30" />
+               </graphic>
+            </JFXButton>
+            <Label fx:id="warningDialog" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="216.0" layoutY="292.0" prefHeight="40.0" prefWidth="105.0" style="-fx-background-color: #d50000;" text="ID Existente" textFill="WHITE" visible="false" AnchorPane.topAnchor="292.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <padding>
+                  <Insets right="2.0" />
+               </padding>
+            </Label>
+            <FontAwesomeIconView fill="WHITE" glyphName="WARNING" layoutX="230.0" layoutY="316.0" size="20" />
+         </children>
+      </AnchorPane>
+   </children>
+</GridPane>
